@@ -1,0 +1,29 @@
+def targetIndices(nums, val):
+    count_less = 0
+    count_target = 0
+ 
+    # Loop to count smaller elements and val
+    for i in range(len(nums)):
+        if (nums[i] == val):
+            count_target += 1
+        if (nums[i] < val):
+            count_less += 1
+ 
+    # List to store indices
+    ans = []
+    while (count_target):
+        ans.append(count_less)
+        count_less += 1
+        count_target -= 1
+    return ans
+ 
+ 
+# Driver code
+nums = [1, 2, 5, 2, 3]
+val = 2
+ans = targetIndices(nums, val)
+ 
+# Loop to print indices
+for i in range(len(ans)):
+    print(ans[i], end=" ")
+ 
